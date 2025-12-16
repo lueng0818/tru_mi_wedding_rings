@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
       react(),
       svgr(),
       tailwindcss(),
+      base: "./",
     ],
     resolve: {
       alias: {

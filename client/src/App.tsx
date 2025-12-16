@@ -9,15 +9,12 @@ import Home from "./pages/Home";
 
 function Router() {
   return (
-    // 👇 修改點：告訴路由器，我們的首頁是在這個子目錄下
-    <WouterRouter base="/tru_mi_wedding_rings">
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/404" component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
       </Switch>
-    </WouterRouter>
 
   );
 }

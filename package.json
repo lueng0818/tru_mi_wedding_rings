@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build", 
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,13 +13,6 @@
     "wouter": "^3.3.5",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.453.0"
-    // ... 其他前端套件保留 (radix-ui, tailwind 等)
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^5.0.4",
-    "typescript": "5.6.3",
-    "vite": "^7.1.7",
-    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@builder.io/vite-plugin-jsx-loc": "^0.1.1",

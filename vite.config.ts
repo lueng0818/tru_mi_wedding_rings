@@ -4,32 +4,21 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
     root: './client',
+    base: '/tru_mi_wedding_rings/',  // 移到這裡，與 zeabur.json 配置一致
     plugins: [
       react(),
       svgr(),
       tailwindcss(),
-      base: "./",
     ],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./client/src"),
+        "@": path.resolve(__dirname, "./client"),
       },
     },
-    server: {
-      host: true,
-    },
-    build: {
-      outDir: '../dist',
-      emptyOutDir: true,
-    },
-    define: {
-      'process.env': env
-    }
   }
 })

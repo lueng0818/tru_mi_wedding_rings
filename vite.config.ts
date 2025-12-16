@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    root: './client',  // 👈 添加這行
+    root: './client',
     plugins: [
       react(),
       svgr(),
@@ -24,11 +24,10 @@ export default defineConfig(({ mode }) => {
       host: true,
     },
     build: {
-      outDir: '../dist',  // 👈 修改這行
+      outDir: '../dist',
     },
     define: {
       'process.env': env
     }
   }
 })
-```__

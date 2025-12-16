@@ -1,4 +1,4 @@
-import path from "path" // 👈 新增：引入路徑處理模組
+import path from "path"
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
@@ -9,12 +9,12 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
+    root: './client',  // 👈 添加這行
     plugins: [
       react(),
       svgr(),
       tailwindcss(),
     ],
-    // 👇 新增這個區塊：告訴 Vite "@" 代表什麼
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./client/src"),
@@ -24,10 +24,11 @@ export default defineConfig(({ mode }) => {
       host: true,
     },
     build: {
-      outDir: 'dist',
+      outDir: '../dist',  // 👈 修改這行
     },
     define: {
       'process.env': env
     }
   }
 })
+```__

@@ -14,7 +14,7 @@ import { useState } from "react";
 // ✅ 修改點：使用 Vite 自動變數，保證路徑 100% 正確
 const BASE_PATH = import.meta.env.BASE_URL; 
 
-xport default function Home() {
+export default function Home() {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* Navigation */}

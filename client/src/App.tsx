@@ -1,21 +1,25 @@
-import { Toaster } from "./components/ui/sonner";
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch, Router as WouterRouter } from "wouter"; // 👈 修改點：多引入 Router 並重新命名
+import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
 
+// 🔴 1. 獲取 Base 路徑 (會自動讀取 vite.config.ts 的設定)
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function Router() {
   return (
+    // 🔴 2. 將 base 傳入 Router
+    <WouterRouter base={base}>
       <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/404" component={NotFound} />
-        {/* Final fallback route */}
+        <Route path={"/"} component={Home} />
+        <Route path={"/404"} component={NotFound} />
         <Route component={NotFound} />
       </Switch>
-
+    </WouterRouter>
   );
 }
 

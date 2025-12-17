@@ -1,4 +1,3 @@
-import { Section } from "@/components/Section";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -11,8 +10,15 @@ import { ArrowRight, Gem, PenTool, HeartHandshake, Sparkles, Menu } from "lucide
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
 
-// ✅ 修改點：使用 Vite 自動變數，保證路徑 100% 正確
-const BASE_PATH = import.meta.env.BASE_URL; 
+// ----------------------------------------------------------------------
+// 🔗 設定區域
+// ----------------------------------------------------------------------
+
+// ✅ 已更新：您的官方 Line 預約連結
+const BOOKING_URL = "https://www.tru-mi.com/line-contact"; 
+
+// ✅ 圖片路徑設定：確保在 GitHub Pages 上能找到圖片
+const BASE_PATH = "/tru_mi_wedding_rings";
 
 export default function Home() {
   return (
@@ -30,10 +36,14 @@ export default function Home() {
             <a href="#craftsmanship" className="hover:text-primary transition-colors">工藝承諾</a>
             <a href="#faq" className="hover:text-primary transition-colors">常見問題</a>
           </div>
+          
           <div className="hidden md:block">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-500">
-              預約諮詢
-            </Button>
+            {/* 這裡會跳轉到 Line */}
+            <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-500">
+                預約諮詢
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Nav */}
@@ -50,10 +60,13 @@ export default function Home() {
                   <a href="#process" className="text-xl font-light tracking-widest hover:text-primary transition-colors">訂製流程</a>
                   <a href="#craftsmanship" className="text-xl font-light tracking-widest hover:text-primary transition-colors">工藝承諾</a>
                   <a href="#faq" className="text-xl font-light tracking-widest hover:text-primary transition-colors">常見問題</a>
+                  
                   <div className="pt-8">
-                    <Button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-6 text-lg tracking-widest">
-                      預約諮詢
-                    </Button>
+                    <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                      <Button className="w-full bg-primary text-white hover:bg-primary/90 rounded-full py-6 text-lg tracking-widest">
+                        預約諮詢
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </SheetContent>
@@ -66,7 +79,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <img 
-            src="`${BASE_PATH}images/hero_process_v3.png" 
+            src={`${BASE_PATH}/images/hero_process_v3.png`}
             alt="From sketch to reality" 
             className="w-full h-full object-cover opacity-90"
           />
@@ -90,9 +103,12 @@ export default function Home() {
             <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 md:mb-12 font-light leading-relaxed px-4">
               專屬婚/對戒訂製。從靈魂深處的故事開始，打造世界上獨一無二的愛情符號。
             </p>
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-10 py-6 text-lg tracking-widest shadow-lg shadow-primary/20 transition-all hover:scale-105">
-              開啟共同創作之旅
-            </Button>
+            
+            <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-10 py-6 text-lg tracking-widest shadow-lg shadow-primary/20 transition-all hover:scale-105">
+                開啟共同創作之旅
+              </Button>
+            </a>
           </motion.div>
         </div>
         
@@ -115,7 +131,7 @@ export default function Home() {
             >
               <div className="absolute -top-10 -left-10 w-full h-full border border-primary/20 z-0"></div>
               <img 
-                src="`${BASE_PATH}images/unique_rings_v3.png" 
+                src={`${BASE_PATH}/images/unique_rings_v3.png`}
                 alt="Unique Rings" 
                 className="relative z-10 w-full shadow-2xl"
               />
@@ -205,14 +221,16 @@ export default function Home() {
           
           <div className="mt-20 relative rounded-2xl overflow-hidden shadow-2xl">
             <img 
-              src="`${BASE_PATH}images/consultation_v3.png" 
+              src={`${BASE_PATH}/images/consultation_v3.png`}
               alt="Consultation Process" 
               className="w-full h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              <Button variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/50 hover:bg-white hover:text-foreground px-8 py-6 text-lg tracking-widest">
-                預約妳們的設計時光
-              </Button>
+              <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                <Button variant="outline" className="relative z-10 bg-white/10 backdrop-blur-md text-white border-white/50 hover:bg-white hover:text-foreground px-8 py-6 text-lg tracking-widest transition-all hover:scale-105">
+                  預約妳們的設計時光
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -279,7 +297,7 @@ export default function Home() {
             >
               <div className="absolute -bottom-10 -right-10 w-full h-full border border-primary/20 z-0"></div>
               <img 
-                src="`${BASE_PATH}images/craftsmanship_v3.png" 
+                src={`${BASE_PATH}/images/craftsmanship_v3.png`}
                 alt="Artisan Craftsmanship" 
                 className="relative z-10 w-full shadow-2xl"
               />
@@ -292,7 +310,7 @@ export default function Home() {
       <section className="py-32 bg-secondary/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img 
-            src="`${BASE_PATH}images/identity_symbol_v3.png" 
+            src={`${BASE_PATH}/images/identity_symbol_v3.png`}
             alt="Identity Symbol" 
             className="w-full h-full object-cover"
           />
@@ -313,9 +331,11 @@ export default function Home() {
               「妳們的愛是如此獨特且珍貴，值得世界上最獨一無二的信物，<br/>
               <span className="text-primary font-medium">永遠不必向任何人解釋妳們的愛。</span>」
             </p>
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-12 py-8 text-xl tracking-widest shadow-lg shadow-primary/20">
-              立即預約專屬諮詢
-            </Button>
+            <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-12 py-8 text-xl tracking-widest shadow-lg shadow-primary/20 transition-all hover:scale-105">
+                立即預約專屬諮詢
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -347,7 +367,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
               <img 
-                src="`${BASE_PATH}images/happy_couple_1.png" 
+                src={`${BASE_PATH}/images/happy_couple_1.png`}
                 alt="Happy Couple 1" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -364,7 +384,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
               <img 
-                src="`${BASE_PATH}images/happy_couple_2.png" 
+                src={`${BASE_PATH}/images/happy_couple_2.png`}
                 alt="Happy Couple 2" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -381,7 +401,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
               <img 
-                src="`${BASE_PATH}images/happy_couple_3.png" 
+                src={`${BASE_PATH}/images/happy_couple_3.png`}
                 alt="Happy Couple 3" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -398,7 +418,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
               <img 
-                src="`${BASE_PATH}images/happy_couple_4.png" 
+                src={`${BASE_PATH}/images/happy_couple_4.png`}
                 alt="Happy Couple 4" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -432,19 +452,19 @@ export default function Home() {
             {[ 
               {
                 title: "永恆守護",
-                image: "`${BASE_PATH}images/story_guardian.png",
+                image: "/images/story_guardian.png",
                 quote: "「只有她壓得住我，我們是一見鍾情。」",
                 desc: "W先生笑著，拿出自己畫的戒指草圖～他屬猴，太太屬豬，所以他設計了一枚「緊箍咒」，上頭有個小豬鼻～他打趣地說，自己脾氣不好，但偏偏對太太沒轍～這對戒指，是愛情的象徵，也是屬於彼此的暗號——我願意被你牢牢圈住...."
               },
               {
                 title: "歸屬",
-                image: "`${BASE_PATH}images/story_belonging.png",
+                image: "/images/story_belonging.png",
                 quote: "「只要她在，就是家...」",
                 desc: "L先生特別挑選了女友的誕生石碧璽，想設計成婚戒。他說兩人最常一起去海邊，因此以「海浪」作為設計靈感，戒指內圍刻了個「指南針」。他說，人生像茫茫大海，有時會迷失方向，但只要她在，就是家..."
               },
               {
                 title: "海龜的約定",
-                image: "`${BASE_PATH}images/story_turtle.png",
+                image: "/images/story_turtle.png",
                 quote: "「兩人的愛隔著片台灣海峽...」",
                 desc: "訂製戒指的是J先生，女友叫飛飛。因為一個在台灣，一個在香港，時常飛來飛去，所以給女友取的小名。兩人都很喜歡海龜，去年12月他們決定結婚了！婚戒上，有著兩人喜歡的海龜，戒腳的波紋，是海浪的形狀。戒指內圍有著711Km，是台灣與香港距離..."
               }
@@ -459,7 +479,7 @@ export default function Home() {
               >
                 <div className="relative overflow-hidden aspect-square">
                   <img 
-                    src={story.image} 
+                    src={`${BASE_PATH}${story.image}`}
                     alt={story.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
@@ -530,7 +550,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-16 border-t border-white/10">
+      <footer id="contact" className="bg-foreground text-background py-16 border-t border-white/10">
         <div className="container px-6">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="col-span-2">

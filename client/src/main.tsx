@@ -1,14 +1,5 @@
-// main.tsx
 import { createRoot } from "react-dom/client";
-import { Router } from "wouter";
 import App from "./App";
 import "./index.css";
 
-// 自動偵測 Vite 的 BASE_URL
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-createRoot(document.getElementById("root")!).render(
-  <Router base={base}>
-    <App />
-  </Router>
-);
+createRoot(document.getElementById("root")!).render(<App />);
